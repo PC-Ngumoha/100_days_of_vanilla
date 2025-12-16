@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flipper</title>
+
+  <style>
+    body {
+      height: 95vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: beige; */
+    }
+
+    button {
+      width: 15%;
+      height: fit-content;
+      padding: 5px;
+      font-size: 17px;
+      letter-spacing: 1.3px;
+      font-weight: bold;
+      border-radius: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <button onclick="flipBgColor()">Flip Color</button>
+</body>
+
+<script>
+  const bodyElement = document.getElementsByTagName("body")[0];
+
+  function flipBgColor () {
+    const colorString = generateColorHexCode();
+    // console.log('Generated Color: ' + colorString);
+    bodyElement.style.backgroundColor = colorString;
+
+  }
+
+  function generateColorHexCode () {
+    const hex = ['0', '1', '2', '3', '4', '5', '6', '7',
+      '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+
+    const c1 = hex[Math.floor(Math.random() * hex.length)];
+    const c2 = hex[Math.floor(Math.random() * hex.length)];
+    const c3 = hex[Math.floor(Math.random() * hex.length)];
+    const c4 = hex[Math.floor(Math.random() * hex.length)];
+    const c5 = hex[Math.floor(Math.random() * hex.length)];
+    const c6 = hex[Math.floor(Math.random() * hex.length)];
+
+    return `#${c1}${c2}${c3}${c4}${c5}${c6}`;
+  }
+</script>
+
+</html>
