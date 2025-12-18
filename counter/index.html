@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+
+  <!-- Google Fonts: BBH Bartle -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=BBH+Bogle&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    main {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      font-family: 'BBH Bogle', sans-serif;
+    }
+
+    #count {
+      color: beige;
+      font-size: 200px;
+    }
+
+    div {
+      width: 80%;
+      height: fit-content;
+      display: flex;
+      justify-content: space-evenly;
+      margin: 10px auto;
+    }
+
+    button {
+      padding: 10px;
+      width: 15%;
+      height: auto;
+      font-size: 40px;
+      font-weight: 600;
+      background-color: #1c1c1c;
+      border-radius: 40px;
+      color: beige;
+    }
+
+    #reset-btn {
+      transform: translateY(100%);
+    }
+  </style>
+
+</head>
+
+<body>
+  <main>
+    <span id="count">0</span>
+    <div>
+      <button onclick="decrement()">&lt;</button>
+      <button onclick="reset()" id="reset-btn">
+        <svg fill="beige" width="40px" height="40px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="M960 0v213.333c411.627 0 746.667 334.934 746.667 746.667S1371.627 1706.667 960 1706.667 213.333 1371.733 213.333 960c0-197.013 78.4-382.507 213.334-520.747v254.08H640V106.667H53.333V320h191.04C88.64 494.08 0 720.96 0 960c0 529.28 430.613 960 960 960s960-430.72 960-960S1489.387 0 960 0"
+              fill-rule="evenodd"></path>
+          </g>
+        </svg>
+      </button>
+      <button onclick="increment()">&gt;</button>
+    </div>
+  </main>
+</body>
+
+<script>
+  const countField = document.getElementById("count");
+  let count = 0;
+
+  update();
+
+  function update () {
+    countField.textContent = count;
+  }
+
+  function increment () {
+    count += 1;
+    update();
+  }
+
+  function decrement () {
+    if (count > 0) {
+      count -= 1;
+      update();
+    }
+  }
+
+  function reset () {
+    count = 0;
+    update();
+  }
+</script>
+
+</html>
