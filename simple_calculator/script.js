@@ -21,3 +21,7 @@ function addToScreen(token) {
 function clearScreen() {
   screen.textContent = '';
 }
+
+function calculate() {
+  alert("Calculating");
+}
